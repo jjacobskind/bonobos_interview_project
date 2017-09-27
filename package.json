@@ -1,0 +1,53 @@
+{
+  "name": "bonobos",
+  "version": "1.0.0",
+  "description": "Homework for Bonobos interview.",
+  "main": "index.js",
+  "scripts": {
+    "dev-server-client": "webpack --progress --watch --config webpack/development.js | webpack-dev-server --port 8083 --config webpack/development.js --hot --history-api-fallback --progress --colors --inline --content-base ./public/build",
+    "dev-server": "node serverBuild/server.js",
+    "build": "webpack --config webpack/production.js --progress --profile --colors",
+    "start": "node serverBuild/server.js"
+  },
+  "author": "Jeremy Jacobskind",
+  "license": "ISC",
+  "dependencies": {
+    "cls-bluebird": "^2.0.1",
+    "consolidate": "^0.14.5",
+    "continuation-local-storage": "^3.2.0",
+    "ejs": "^2.5.7",
+    "express": "^4.15.5",
+    "lodash": "^4.17.4",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "react-helmet": "^5.2.0",
+    "react-redux": "^5.0.6",
+    "react-router-dom": "^4.2.2",
+    "redux": "^3.7.2",
+    "redux-thunk": "^2.2.0",
+    "sequelize": "^4.11.1"
+  },
+  "devDependencies": {
+    "babel": "^6.23.0",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "clean-webpack-plugin": "^0.1.17",
+    "css-loader": "^0.28.7",
+    "extract-text-webpack-plugin": "^3.0.0",
+    "node-sass": "^4.5.3",
+    "optimize-css-assets-webpack-plugin": "^3.2.0",
+    "postcss-loader": "^2.0.6",
+    "resolve-url-loader": "^2.1.0",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.18.2",
+    "webpack": "^3.6.0",
+    "webpack-dev-server": "^2.9.1",
+    "webpack-manifest-plugin": "^1.3.2",
+    "webpack-md5-hash": "0.0.5"
+  }
+}
