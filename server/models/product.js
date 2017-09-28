@@ -19,15 +19,13 @@ export default (sequelize, DataTypes) => {
   {
     tableName: 'products',
     timestamps: true,
-    underscored: true,
-
-    classMethods: {
-      associate: function(models) {
-        product.belongsToMany(models.style, { through: 'productStyleInventory', foreignKey: 'productId', otherKey: 'styleId' });
-        product.hasMany(models.productStyleInventory, { foreignKey: 'productId' });
-      }
-    }
+    underscored: true
   });
+
+  product.associate = function(models) {
+    product.belongsToMany(models.style, { through: 'productStyleInventory', foreignKey: 'productId', otherKey: 'styleId' });
+    product.hasMany(models.productStyleInventory, { foreignKey: 'productId' });
+  }
 
   return product;
 };

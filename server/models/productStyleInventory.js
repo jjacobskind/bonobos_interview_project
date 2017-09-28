@@ -31,15 +31,13 @@ export default (sequelize, DataTypes) => {
   {
     tableName: 'product_style_inventories',
     timestamps: true,
-    underscored: true,
-
-    classMethods: {
-      associate: function(models) {
-        productStyleInventory.belongsTo(models.product, { foreignKey: 'productId' });
-        productStyleInventory.belongsTo(models.style, { foreignKey: 'styleId' });
-      }
-    }
+    underscored: true
   });
+
+  productStyleInventory.associate = function(models) {
+    productStyleInventory.belongsTo(models.product, { foreignKey: 'productId' });
+    productStyleInventory.belongsTo(models.style, { foreignKey: 'styleId' });
+  }
 
   return productStyleInventory;
 };

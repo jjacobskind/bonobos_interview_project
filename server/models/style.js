@@ -9,15 +9,13 @@ export default (sequelize, DataTypes) => {
   {
     tableName: 'styles',
     timestamps: true,
-    underscored: true,
-
-    classMethods: {
-      associate: function(models) {
-        style.belongsToMany(models.product, { through: 'productStyleInventory', foreignKey: 'styleId', otherKey: 'productId' });
-        style.hasMany(models.productStyleInventory, { foreignKey: 'styleId' });
-      }
-    }
+    underscored: true
   });
+
+  style.associate = function(models) {
+    style.belongsToMany(models.product, { through: 'productStyleInventory', foreignKey: 'styleId', otherKey: 'productId' });
+    style.hasMany(models.productStyleInventory, { foreignKey: 'styleId' });
+  }
 
   return style;
 };
