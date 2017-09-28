@@ -12,9 +12,12 @@
   "author": "Jeremy Jacobskind",
   "license": "ISC",
   "dependencies": {
+    "async": "^2.5.0",
+    "bluebird": "^3.5.0",
     "cls-bluebird": "^2.0.1",
     "consolidate": "^0.14.5",
     "continuation-local-storage": "^3.2.0",
+    "csvtojson": "^1.1.7",
     "ejs": "^2.5.7",
     "express": "^4.15.5",
     "lodash": "^4.17.4",

@@ -17,8 +17,8 @@ export default (sequelize, DataTypes) => {
       allowNull: false,
       references: { model: 'styles', key: 'id' }
     },
-    height: {
-      field: 'height',
+    length: {
+      field: 'length',
       type: DataTypes.INTEGER,
       allowNull: false
     },

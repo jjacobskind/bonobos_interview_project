@@ -4,11 +4,6 @@ export default (sequelize, DataTypes) => {
       field: 'name',
       type: DataTypes.STRING,
       allowNull: false
-    },
-    canonicalName: {
-      field: 'canonical_name',
-      type: DataTypes.STRING,
-      allowNull: false
     }
   },
   {
