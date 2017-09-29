@@ -4,6 +4,8 @@ import App from '../../client/react/containers/App';
 
 const router = express.Router();
 
+router.use('/api', require('./api'));
+
 router.get('/', renderReact(App), (req, res, next) => {
   res.render('reactTemplate.ejs');
 });
