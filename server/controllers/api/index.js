@@ -11,6 +11,8 @@ router.get('/products', (req, res, next) => {
 
   if(include.indexOf('inventory') > -1) {
     productQuery.include = [models.inventory];
+    const inventoryOrder = [[models.inventory, 'style', 'ASC'], [models.inventory, 'waist', 'ASC'], [models.inventory, 'length', 'ASC']];
+    productQuery.order = productQuery.order.concat(inventoryOrder);
   }
 
   models.product.findAll(productQuery)
