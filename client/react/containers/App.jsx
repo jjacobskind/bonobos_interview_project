@@ -1,5 +1,6 @@
 import React from 'react';
 import Helmet from 'react-helmet';
+import ProductList from '../components/ProductList';
 import Loader from '../components/Loader';
 
 export default class App extends React.Component {
@@ -15,7 +16,7 @@ export default class App extends React.Component {
         return response.json();
       })
       .then(responseBody => {
-        this.setState({ productInventory: responseBody.data, loaded: true })
+        this.setState({ products: responseBody.data, loaded: true })
       })
       .catch(response => {
         if(!response.ok) { /*TODO: handle this*/ }
@@ -23,14 +24,15 @@ export default class App extends React.Component {
   }
 
   render() {
-    const {loaded} = this.state;
+    const {loaded, products} = this.state;
 
     return (
-      <div>
+      <div className='main-container'>
         <Helmet>
           <title>Store Inventory</title>
         </Helmet>
         <Loader hidden={loaded} message='Loading Inventory' />
+        {loaded ? <ProductList products={products} /> : null }
       </div>
     );
   }

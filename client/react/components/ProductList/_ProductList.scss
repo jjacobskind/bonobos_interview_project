@@ -1,0 +1,35 @@
+.ProductList {
+  &, ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+.ProductTile {
+  width: 100%;
+  background-color: #cae6e6;
+  border-radius: 3px;
+  padding: 10px;
+  margin: 0;
+  margin-bottom: 10px;
+  display: flex;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+
+  .product-col {
+    flex: 2;
+    text-align: center;
+
+    img { width: 90%; }
+    h2 { margin: 5px 0; }
+    strong { font-weight: 100; }
+
+  }
+
+  .inventory-col {
+    flex: 4;
+  }
+}
