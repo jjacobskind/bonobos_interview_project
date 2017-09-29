@@ -17,6 +17,9 @@ router.get('/products', (req, res, next) => {
     .then(productData => {
       res.json({ data: productData });
     })
+    .catch(error => {
+      next({ status: 500, error });
+    })
 })
 
 export default router;
