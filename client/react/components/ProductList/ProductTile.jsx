@@ -1,4 +1,20 @@
 import React from 'react';
+import StyleList from './StyleList';
+
+const _styleLists = (inventories) => {
+  let styleMap = {};
+  inventories.forEach(inventory => {
+    styleMap[inventory.style] = styleMap[inventory.style] || [];
+    styleMap[inventory.style].push(inventory);
+  });
+
+  const styleLists = Object.keys(styleMap)
+                      .sort()
+                      .map((key, index) => {
+                        return <StyleList key={index} inventories={styleMap[key]} />
+                      });
+  return styleLists;
+}
 
 export default (props) => {
   const {product} = props;
@@ -15,7 +31,7 @@ export default (props) => {
       </div>
 
       <div className='inventory-col'>
-
+        {_styleLists(product.inventories)}
       </div>
     </li>
   );

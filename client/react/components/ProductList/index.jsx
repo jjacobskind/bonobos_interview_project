@@ -4,8 +4,8 @@ import ProductTile from './ProductTile';
 export default (props) => {
   const {products} = props;
 
-  const productTiles = products.map(product => {
-    return <ProductTile product={product} />;
+  const productTiles = products.map((product, index) => {
+    return <ProductTile key={index} product={product} />;
   });
 
   return (
