@@ -1,0 +1,26 @@
+.Loader {
+  position: absolute;
+  top: 0; bottom: 0; left: 0; right: 0;
+  z-index: 1000;
+  background-color: #fff;
+  transition: opacity 0.5s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &.hidden {
+    pointer-events: none;
+    opacity: 0;
+  }
+
+  .content {
+    text-align: center;
+  }
+
+  .spinner-container {
+    background-image: url('images/loader-spinner.gif');
+    background-size: 100%;
+    width: 200px;
+    height: 200px;
+  }
+}
