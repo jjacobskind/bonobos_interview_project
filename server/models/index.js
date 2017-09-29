@@ -13,8 +13,7 @@ clsBluebird(Sequelize.cls, sequelizeInstance.Promise);
 
 const models = [
   require('./product'),
-  require('./productStyleInventory'),
-  require('./style')
+  require('./inventory')
 ];
 
 const _importModels = () => {

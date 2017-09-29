@@ -23,8 +23,7 @@ export default (sequelize, DataTypes) => {
   });
 
   product.associate = function(models) {
-    product.belongsToMany(models.style, { through: 'productStyleInventory', foreignKey: 'productId', otherKey: 'styleId' });
-    product.hasMany(models.productStyleInventory, { foreignKey: 'productId' });
+    product.hasMany(models.inventory, { foreignKey: 'productId' });
   }
 
   return product;
