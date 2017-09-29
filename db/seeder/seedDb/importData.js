@@ -46,7 +46,7 @@ const _importData = () => {
                 productId: parseInt(record.product_id),
                 waist: parseInt(record.waist),
                 length: parseInt(record.length),
-                stockCount: parseInt(record.count),
+                count: parseInt(record.count),
                 style: record.style.trim()
               }
             })
