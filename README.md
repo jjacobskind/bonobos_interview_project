@@ -4,32 +4,7 @@
 
 - In order to run this project, you need to have node and npm installed on your environment. I used node v.8.0.0 and npm v5.3.0.
 - After cloning the repo, navigate into the project directory and run "npm install"
-- This app utilizes a PostgresSQL database. Any version should be fine. In order to configure the database connection, you need to manually create a production and a test database. Then, create the following file: db/config/config.json. Its contents should look like this:
-
-{
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"test": {
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    "username": "[your-username]",
- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   "password": "[your-password]",
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  "database": "[test-database-name]",
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  "host": "127.0.0.1",
- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   "dialect": "postgres",
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    "dialectOptions": {
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      "charset": "utf8mb4"
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    },
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    "logging": false
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  },
- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "production": {
- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   "username": "[your-username]",
- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   "password": "[your-password]",
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    "database": "[production-database-name]",
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    "host": "127.0.0.1",
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    "dialect": "postgres",
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    "dialectOptions": {
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      "charset": "utf8mb4"
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    },
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"logging": false
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  }
-}
+- This app utilizes a PostgresSQL database. Any version should be fine. In order to configure the database connection, you need to manually create a production and a test database. Then, modify db/config/config.json to match the configuration of the database you created.
 
 - Once the database is set up and all dependencies have been installed, you can execute "npm run build && npm run start" from the project directory. When you see text that reads, "Bonobos homework assignment running on port 3000", you can access the app at localhost:3000.
 - Note: The ORM I used has a sync() function that I'm using to automatically create database tables based on my model schemas. Once this finishes, I call my code to pull data from the CSV files and load them into the database. As a result, each time you restart the app, the old tables are dropped, and the database is repopulated. I wouldn't do this in a production app, but it works well when starting a new project. I wanted to make it simple for you guys to run the app.
@@ -50,7 +25,8 @@
       - Image optimization, since data for multiple image sizes could be stored and related to each other
       - Image association with other tables.
     - However, the current project specifications leave me inclined to leave the image url on the products table until there is an immediate reason to take them out.
-    
+
 - If the process of pulling data into the database this way was more open-ended (i.e. there was a LOT more data, or new data was constantly coming in this way), I would make the process interruptable/resumable. I would also modify it to read/persist data in chunks, rather reading/persisting all data at once. It would also be important to add robust testing to this process.
 
 - As I mentioned above, the database sync() function should not be in a production app, and I would remove it (and my data loading code) immediately after the database was initialized.
+- Due to a desire to simplify the build on your end, I removed the part of my build process that adds hashes to the names of js and css assets. I would definitely add that back in to a production app in order to optimize asset caching.

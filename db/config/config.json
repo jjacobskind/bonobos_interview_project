@@ -1,0 +1,24 @@
+{
+  "test": {
+    "username": "[your-username]",
+    "password": "[your-password]",
+    "database": "[test-database-name]",
+    "host": "127.0.0.1",
+    "dialect": "postgres",
+    "dialectOptions": {
+      "charset": "utf8mb4"
+    },
+    "logging": false
+  },
+  "production": {
+    "username": "[your-username]",
+    "password": "[your-password]",
+    "database": "[production-database-name]",
+    "host": "127.0.0.1",
+    "dialect": "postgres",
+    "dialectOptions": {
+      "charset": "utf8mb4"
+    },
+    "logging": false
+  }
+}
